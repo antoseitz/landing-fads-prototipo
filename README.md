@@ -7,6 +7,7 @@ Suban los archivos a la carpeta [`media`](media/) con estos nombres; la página 
 
 | Sección | Archivos |
 |---|---|
+| Portada (video en movimiento, sin sonido) | `portada.mp4` |
 | Tu primera clase | `primera-clase.jpg` |
 | Clases | `estudio.jpg` |
 | Instructores | `profe-1.jpg` a `profe-6.jpg` (los nombres se editan en la lista `EQUIPO` de [`index.html`](index.html)) |
@@ -18,3 +19,4 @@ Suban los archivos a la carpeta [`media`](media/) con estos nombres; la página 
 ## Changelog
 
 - 2026-11-15: primera versión de la landing "¿Me concedes esta pieza?" ([`index.html`](index.html)).
+- 2026-11-15: paleta de la marca (negro, blanco y dorado) y portada con video opcional `media/portada.mp4` ([`index.html`](index.html)).
