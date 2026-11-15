@@ -34,3 +34,4 @@ Origen de las fotos y videos: publicaciones de Instagram de @fadssantiago y de a
 - 2026-11-15: video del Mini Match en Eventos → Competencias ([`media/competencia-video-1.mp4`](media/competencia-video-1.mp4)).
 - 2026-11-15: elimina la pestaña Tu primera clase; videos en Clases privadas y grupales; foto grupal en Fiestas; nuevo video 1 de portada; todos los videos reexportados a la resolución de su fuente ([`index.html`](index.html), [`media`](media/)).
 - 2026-11-15: segundo video en Clases privadas ([`media/clase-privada-2.mp4`](media/clase-privada-2.mp4)).
+- 2026-11-15: la foto grupal de Fiestas se muestra completa, sin cortar a las personas ([`index.html`](index.html)).
