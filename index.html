@@ -155,6 +155,14 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
   footer{flex-direction:column;gap:2px}
 }
 @media(max-width:560px){header .boton{display:none}.equipo .foto{font-size:38px}}
+
+/* galerías sin recorte: todas las fotos a la misma altura y con su ancho natural */
+.galeria.on{display:flex;flex-wrap:wrap;gap:14px}
+.galeria figure{height:290px;flex:0 0 auto;max-width:100%}
+.galeria img,.galeria video{height:100%;width:auto;max-width:100%;aspect-ratio:auto;object-fit:cover}
+.galeria[data-g=proximos] figure{height:auto;width:min(380px,100%)}
+.galeria[data-g=proximos] img{height:auto;width:100%}
+@media(max-width:1080px){.galeria figure{height:190px}}
 </style>
 </head>
 <body>

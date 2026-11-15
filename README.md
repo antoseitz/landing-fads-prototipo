@@ -41,3 +41,4 @@ Origen de las fotos y videos: publicaciones de Instagram de @fadssantiago y de a
 - 2026-11-15: fotos y nombres completos de seis instructores, tomados de los nombres de archivo entregados por el equipo ([`media`](media/)).
 - 2026-11-15: fotos de cinco personas más del equipo y nombre completo de Josefa De la Fuente, según los nombres de archivo entregados ([`media`](media/)).
 - 2026-11-15: foto de José Luis Tejo ([`media/profe-jose-luis-tejo.jpg`](media/profe-jose-luis-tejo.jpg)).
+- 2026-11-15: las galerías de Eventos muestran cada foto completa, sin recortar personas; recorte más limpio de la foto de Carlos Boza ([`index.html`](index.html)).
