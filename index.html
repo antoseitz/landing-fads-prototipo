@@ -75,6 +75,12 @@ main{flex:1 0 auto;display:flex}
 .banda{margin-top:22px;border:3px solid var(--oro);padding:8px}
 .banda img{width:100%;height:clamp(180px,30vh,300px);object-fit:cover;object-position:50% 45%}
 
+/* fiestas temáticas */
+.fiestas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:28px}
+.fiestas h3{font-size:26px;margin-bottom:10px}
+.fiestas h3 small{display:block;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--oro3);margin-bottom:2px}
+.fiestas .marco video{aspect-ratio:4/4.6}
+
 /* instructores */
 .equipo{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin-top:34px}
 .equipo figure{text-align:center}
@@ -90,7 +96,7 @@ main{flex:1 0 auto;display:flex}
 .galeria.on{display:grid}
 .galeria figure{position:relative;background:#111}
 .galeria img{width:100%;aspect-ratio:4/3.6;object-fit:cover;object-position:50% 25%}
-.galeria video{width:100%;aspect-ratio:3/4;object-fit:contain;background:#000}
+.galeria video{width:100%;aspect-ratio:4/3.6;object-fit:contain;background:#000}
 .galeria figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 10px;font-size:13.5px;font-weight:500;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent)}
 
 /* reservar */
@@ -131,7 +137,7 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
   .dentro{padding:30px 20px 44px}
   .dos,.reserva{grid-template-columns:1fr;gap:28px}
   .marco img,.marco video{aspect-ratio:4/3}
-  .tres{grid-template-columns:1fr;gap:14px}
+  .tres,.fiestas{grid-template-columns:1fr;gap:14px}
   .equipo{grid-template-columns:repeat(3,1fr)}
   .galeria{grid-template-columns:1fr 1fr}
   footer{flex-direction:column;gap:2px}
@@ -149,6 +155,7 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
     <button role="tab" data-ir="inicio" aria-selected="true">Inicio</button>
     <button role="tab" data-ir="clase">Tu primera clase</button>
     <button role="tab" data-ir="clases">Clases</button>
+    <button role="tab" data-ir="fiestas">Fiestas</button>
     <button role="tab" data-ir="instructores">Instructores</button>
     <button role="tab" data-ir="eventos">Eventos</button>
     <button role="tab" data-ir="preguntas">Preguntas</button>
@@ -170,7 +177,7 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
       <div class="slogan">Que te vean disfrutar.</div>
       <p>Tu primera clase dura 30 minutos, con un instructor que baila contigo. No necesitas experiencia ni pareja.</p>
       <div><button class="boton" data-ir="reserva">Reserva tu clase de prueba</button></div>
-      <div class="pasa"><button data-ir="clase">Cómo es la primera clase</button><button data-ir="eventos">Shows y competencias</button></div>
+      <div class="pasa"><button data-ir="clase">Cómo es la primera clase</button><button data-ir="fiestas">Fiestas temáticas de los viernes</button><button data-ir="eventos">Shows y competencias</button></div>
     </div>
   </section>
 
@@ -196,6 +203,12 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
       <div class="caja"><h3>Prácticas</h3><p>Una fiesta entre conocidos para soltarte, bailar con distintas parejas y aplicar lo aprendido.</p></div>
     </div>
     <div class="banda"><img src="media/estudio-2.jpg" alt="Alumnos e instructores celebran la Navidad en el estudio"></div>
+  </div></section>
+
+  <section class="vista" id="fiestas"><div class="dentro">
+    <h2>Fiestas temáticas de los viernes</h2>
+    <p style="color:var(--gris);max-width:42em;margin-top:10px">Los viernes el estudio se transforma: cada fiesta tiene un tema, y alumnos e instructores bailan juntos lo que aprendieron en la semana.</p>
+    <div class="fiestas" id="lista-fiestas"></div>
   </div></section>
 
   <section class="vista oro" id="instructores"><div class="dentro">
@@ -263,6 +276,16 @@ EQUIPO.forEach((nombre,i)=>{
 });
 document.querySelectorAll('[data-foto]').forEach(d=>{const im=new Image();im.alt='';im.onload=()=>{d.textContent='';d.append(im)};im.src=d.dataset.foto});
 
+/* FIESTAS: cada una aparece solo si su video existe en media/. Para agregar otra, sumen una línea aquí. */
+const FIESTAS=[["Halloween","fiesta-halloween"],["México","fiesta-mexico"],["España","fiesta-espana"]];
+FIESTAS.forEach(([titulo,archivo])=>{
+  const c=document.createElement('div'); c.hidden=true; document.getElementById('lista-fiestas').append(c);
+  const v=document.createElement('video'); v.muted=true; v.loop=true; v.playsInline=true; v.setAttribute('muted','');
+  v.onloadedmetadata=()=>{c.innerHTML=`<h3><small>Fiesta temática</small>${titulo}</h3><div class="marco"></div>`; c.querySelector('.marco').append(v); c.hidden=false;
+    if(document.getElementById('fiestas').classList.contains('on')) v.play().catch(()=>{})};
+  v.onerror=()=>c.remove(); v.src=`media/${archivo}.mp4`;
+});
+
 /* Pestañas: se muestra una vista a la vez */
 const vistas=[...document.querySelectorAll('.vista')];
 function ir(id){
@@ -280,7 +303,7 @@ ir(location.hash.slice(1)||'inicio');
    Para agregar una foto o video basta subir el siguiente número. Los pies de foto se editan en PIES. */
 const PIES={"show-1":"Broadway Showcase","show-2":"Broadway Showcase","show-3":"El elenco al cierre del show",
   "competencia-1":"South American Open","competencia-2":"Raymichay Competition","competencia-3":"World Dance Experience, Argentina",
-  "video-1":"Clase grupal en el estudio","video-2":"En competencia","video-4":"Halloween","video-3":"Open Chile Championships. Video: @openchilechampionships","competencia-4":"Instructores en competencia. Foto: @karin.shots","evento-1":"4 de julio en la Embajada de EE.UU.","estudio-2":"Navidad en el estudio","estudio-1":"Mini Match","estudio-3":"Antes de salir a escena"};
+  "video-1":"Clase grupal en el estudio","video-2":"En competencia","competencia-video-1":"Mini Match","video-3":"Open Chile Championships. Video: @openchilechampionships","competencia-4":"Instructores en competencia. Foto: @karin.shots","evento-1":"4 de julio en la Embajada de EE.UU.","estudio-2":"Navidad en el estudio","estudio-1":"Mini Match","estudio-3":"Antes de salir a escena"};
 function llenar(g,nombres,ext){
   const caja=document.querySelector(`.galeria[data-g="${g}"]`);
   nombres.forEach(n=>{
@@ -294,6 +317,7 @@ function llenar(g,nombres,ext){
 const serie=p=>Array.from({length:20},(_,k)=>`${p}-${k+1}`);
 llenar('shows',serie('show'));
 llenar('compe',serie('competencia'));
+llenar('compe',serie('competencia-video'),'mp4');
 llenar('estudio',[...serie('evento'),'estudio-2','estudio-1','estudio-3']);
 llenar('videos',serie('video'),'mp4');
 
