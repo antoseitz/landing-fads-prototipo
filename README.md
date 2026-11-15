@@ -8,7 +8,7 @@ La página es de pestañas y lee sus archivos desde [`media`](media/). Para camb
 | Pestaña | Archivos |
 |---|---|
 | Inicio (tres videos a la vez, sin sonido) | `portada-1.mp4` a `portada-3.mp4`, con su imagen `portada-N.jpg` |
-| Tu primera clase | `estudio-1.jpg` |
+| Tu primera clase | `primera-clase.mp4`, con su imagen `primera-clase.jpg` |
 | Clases | `estudio-2.jpg` |
 | Instructores | `profe-1.jpg` a `profe-6.jpg` (opcionales; los nombres se editan en la lista `EQUIPO` de [`index.html`](index.html)) |
 | Eventos → Shows | `show-1.jpg`, `show-2.jpg`, … (hasta `show-20.jpg`) |
@@ -26,3 +26,4 @@ Origen de las fotos y videos: publicaciones de Instagram de @fadssantiago y de a
 - 2026-11-15: paleta de la marca (negro, blanco y dorado) y portada con video opcional `media/portada.mp4` ([`index.html`](index.html)).
 - 2026-11-15: página por pestañas, negro, blanco y dorado, portada con tres videos y fotos reales ([`index.html`](index.html), [`media`](media/)).
 - 2026-11-15: galerías de Eventos que detectan solas los archivos numerados, pestaña Videos y videos de portada en mayor calidad ([`index.html`](index.html)).
+- 2026-11-15: videos originales en la portada, en Tu primera clase y en Eventos → Videos ([`media`](media/)).

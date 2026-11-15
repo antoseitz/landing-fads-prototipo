@@ -60,7 +60,7 @@ main{flex:1 0 auto;display:flex}
 .dos{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:54px;align-items:center}
 .marco{border:3px solid var(--oro);padding:8px;background:#fff}
 .oscura .marco{background:#000}
-.marco img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.marco img,.marco video{width:100%;aspect-ratio:4/5;object-fit:cover}
 .pasos{list-style:none;padding:0;margin-top:26px}
 .pasos li{display:grid;grid-template-columns:62px 1fr;gap:4px 14px;padding:18px 0;border-top:1px solid #dcdcdc}
 .pasos b.n{font-size:40px;line-height:1;color:var(--oro)}
@@ -90,7 +90,7 @@ main{flex:1 0 auto;display:flex}
 .galeria.on{display:grid}
 .galeria figure{position:relative;background:#111}
 .galeria img{width:100%;aspect-ratio:4/3.6;object-fit:cover;object-position:50% 25%}
-.galeria video{width:100%;aspect-ratio:3/4;object-fit:cover;background:#111}
+.galeria video{width:100%;aspect-ratio:3/4;object-fit:contain;background:#000}
 .galeria figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 10px;font-size:13.5px;font-weight:500;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent)}
 
 /* reservar */
@@ -130,7 +130,7 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
   .hola{padding:26px 22px 34px;flex:none}
   .dentro{padding:30px 20px 44px}
   .dos,.reserva{grid-template-columns:1fr;gap:28px}
-  .marco img{aspect-ratio:4/3}
+  .marco img,.marco video{aspect-ratio:4/3}
   .tres{grid-template-columns:1fr;gap:14px}
   .equipo{grid-template-columns:repeat(3,1fr)}
   .galeria{grid-template-columns:1fr 1fr}
@@ -175,7 +175,7 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
   </section>
 
   <section class="vista" id="clase"><div class="dentro dos">
-    <div class="marco"><img src="media/estudio-1.jpg" alt="Una pareja posa en un paso de baile frente al logo del estudio"></div>
+    <div class="marco"><video src="media/primera-clase.mp4" poster="media/primera-clase.jpg" autoplay muted loop playsinline aria-label="Un instructor invita a bailar a una alumna en el estudio"></video></div>
     <div>
       <h2>Así es tu primera clase</h2>
       <ol class="pasos">
@@ -269,7 +269,7 @@ function ir(id){
   if(!document.getElementById(id)) id='inicio';
   vistas.forEach(v=>v.classList.toggle('on',v.id===id));
   document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.ir===id));
-  document.querySelectorAll('#inicio video').forEach(v=>id==='inicio'?v.play().catch(()=>{}):v.pause());
+  document.querySelectorAll('.vista > .trio video, .marco video').forEach(v=>v.closest('.vista').id===id?v.play().catch(()=>{}):v.pause());
   if(location.hash!=='#'+id) history.replaceState(null,'','#'+id);
   window.scrollTo(0,0);
 }
@@ -280,7 +280,7 @@ ir(location.hash.slice(1)||'inicio');
    Para agregar una foto o video basta subir el siguiente número. Los pies de foto se editan en PIES. */
 const PIES={"show-1":"Broadway Showcase","show-2":"Broadway Showcase","show-3":"El elenco al cierre del show",
   "competencia-1":"South American Open","competencia-2":"Raymichay Competition","competencia-3":"World Dance Experience, Argentina",
-  "evento-1":"4 de julio en la Embajada de EE.UU.","estudio-2":"Navidad en el estudio","estudio-1":"Mini Match","estudio-3":"Antes de salir a escena"};
+  "video-1":"Clase grupal en el estudio","video-2":"En competencia","evento-1":"4 de julio en la Embajada de EE.UU.","estudio-2":"Navidad en el estudio","estudio-1":"Mini Match","estudio-3":"Antes de salir a escena"};
 function llenar(g,nombres,ext){
   const caja=document.querySelector(`.galeria[data-g="${g}"]`);
   nombres.forEach(n=>{
