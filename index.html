@@ -93,7 +93,7 @@ main{flex:1 0 auto;display:flex}
 .equipo{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:16px;margin-top:22px}
 .equipo figure{text-align:center}
 .equipo .foto{aspect-ratio:1/1.1;background:#000;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;color:var(--oro);overflow:hidden}
-.equipo img{width:100%;height:100%;object-fit:cover}
+.equipo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 .equipo figcaption{font-weight:700;font-size:15.5px;line-height:1.2;margin-top:10px}
 
 /* eventos */
@@ -271,8 +271,8 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
 <script>
 /* EQUIPO: [nombre, archivo de foto en media/]. Si la foto existe se muestra; si no, quedan las iniciales. */
 const INSTRUCTORES=[["José Luis Tejo","profe-jose-luis-tejo"],["Macarena Álvarez","profe-macarena-alvarez"],["Julliana Villacorta","profe-julliana-villacorta"],
-  ["Jo","profe-jo"],["Carlos Boza","profe-carlos-boza"],["Karlos Vásquez","profe-karlos-vasquez"],["Gustavo","profe-gustavo"],
-  ["Jota","profe-jota"],["Víctor","profe-victor"],["Benja","profe-benja"]];
+  ["Jo","profe-jo"],["Carlos Boza","profe-carlos-boza"],["Karlos Vásquez","profe-karlos-vasquez"],["Gustavo Márquez","profe-gustavo-marquez"],
+  ["José Manuel González","profe-jose-manuel-gonzalez"],["Víctor Varas","profe-victor-varas"],["Benjamín Vergara","profe-benjamin-vergara"]];
 const PRACTICANTES=[["Sofía Soperrey","profe-sofia-soperrey"],["Matías Mora","profe-matias-mora"],["Sebastián Riquelme","profe-sebastian-riquelme"]];
 function equipo(id,lista){const eq=document.getElementById(id);
   lista.forEach(([nombre,archivo])=>{const ini=nombre.split(' ').map(x=>x[0]).slice(0,2).join('');

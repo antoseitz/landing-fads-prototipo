@@ -38,3 +38,4 @@ Origen de las fotos y videos: publicaciones de Instagram de @fadssantiago y de a
 - 2026-11-15: la foto grupal de Fiestas se muestra completa, sin cortar a las personas ([`index.html`](index.html)).
 - 2026-11-15: sub-pestaña Próximos eventos con el afiche del Open Chile Championships 2026, tomado de Instagram con crédito ([`media/proximo-1.jpg`](media/proximo-1.jpg)).
 - 2026-11-15: equipo actualizado a 10 instructores y 3 practicantes, según lo informado por el equipo del proyecto; sin verificar apellidos y grafías ([`index.html`](index.html)).
+- 2026-11-15: fotos y nombres completos de seis instructores, tomados de los nombres de archivo entregados por el equipo ([`media`](media/)).
