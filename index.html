@@ -68,8 +68,12 @@ main{flex:1 0 auto;display:flex}
 .pasos p{color:var(--gris);grid-column:2}
 
 /* clases */
-.tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:34px}
-.caja{background:var(--carbon);border-top:5px solid var(--oro);padding:30px 26px 34px}
+.tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:24px}
+.caja{background:var(--carbon);border-top:5px solid var(--oro);padding:0 0 26px}
+.caja h3,.caja p{margin-left:24px;margin-right:24px}
+.medio{position:relative;margin-bottom:20px}
+.medio video,.medio img{width:100%;aspect-ratio:4/3.3;object-fit:cover}
+.medio span{position:absolute;left:0;bottom:0;background:var(--oro);color:#000;font-size:12.5px;font-weight:700;padding:4px 12px}
 .caja h3{font-size:25px;color:var(--oro2);margin-bottom:10px}
 .caja p{color:#dedede}
 .banda{margin-top:22px;border:3px solid var(--oro);padding:8px}
@@ -80,6 +84,10 @@ main{flex:1 0 auto;display:flex}
 .fiestas h3{font-size:26px;margin-bottom:10px}
 .fiestas h3 small{display:block;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--oro3);margin-bottom:2px}
 .fiestas .marco video{aspect-ratio:4/4.6}
+
+.todos{position:relative;margin-top:22px;border:3px solid var(--oro);padding:8px}
+.todos img{width:100%;height:clamp(220px,42vh,420px);object-fit:cover;object-position:50% 62%}
+.todos figcaption{position:absolute;left:8px;bottom:8px;background:var(--oro);color:#000;font-size:13px;font-weight:700;padding:5px 14px}
 
 /* instructores */
 .equipo{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin-top:34px}
@@ -155,7 +163,6 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
   <button class="marca" data-ir="inicio"><b>FRED ASTAIRE</b><i>DANCE STUDIOS SANTIAGO</i></button>
   <div class="tabs" role="tablist" id="tabs">
     <button role="tab" data-ir="inicio" aria-selected="true">Inicio</button>
-    <button role="tab" data-ir="clase">Tu primera clase</button>
     <button role="tab" data-ir="clases">Clases</button>
     <button role="tab" data-ir="fiestas">Fiestas</button>
     <button role="tab" data-ir="instructores">Instructores</button>
@@ -179,37 +186,24 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
       <div class="slogan">Que te vean disfrutar.</div>
       <p>Tu primera clase dura 30 minutos, con un instructor que baila contigo. No necesitas experiencia ni pareja.</p>
       <div><button class="boton" data-ir="reserva">Reserva tu clase de prueba</button></div>
-      <div class="pasa"><button data-ir="clase">Cómo es la primera clase</button><button data-ir="fiestas">Fiestas temáticas de los viernes</button><button data-ir="eventos">Shows y competencias</button></div>
+      <div class="pasa"><button data-ir="clases">Clases privadas y grupales</button><button data-ir="fiestas">Fiestas temáticas de los viernes</button><button data-ir="eventos">Shows y competencias</button></div>
     </div>
   </section>
-
-  <section class="vista" id="clase"><div class="dentro dos">
-    <div class="marco"><video src="media/primera-clase.mp4" poster="media/primera-clase.jpg" autoplay muted loop playsinline aria-label="Un instructor invita a bailar a una alumna en el estudio"></video></div>
-    <div>
-      <h2>Así es tu primera clase</h2>
-      <ol class="pasos">
-        <li><b class="n">1</b><h3>Llegas.</h3><p>Te recibimos en el estudio de La Dehesa y conversamos sobre qué te gustaría bailar y para qué ocasión.</p></li>
-        <li><b class="n">2</b><h3>Un instructor te guía.</h3><p>Bailas con él desde el primer minuto. Él lleva el paso; tú solo lo sigues.</p></li>
-        <li><b class="n">3</b><h3>Aprendes tu primer paso.</h3><p>En 30 minutos pruebas tres estilos de baile y te vas sabiendo que sí puedes.</p></li>
-      </ol>
-      <p style="margin-top:26px"><button class="boton" data-ir="reserva">Reserva tu clase de prueba</button></p>
-    </div>
-  </div></section>
 
   <section class="vista oscura" id="clases"><div class="dentro">
     <h2>Después, tres formas de seguir</h2>
     <p style="color:#d0d0d0;max-width:40em;margin-top:10px">Cada alumno combina las tres según su meta: un matrimonio, un viaje o las ganas de bailar bien.</p>
     <div class="tres">
-      <div class="caja"><h3>Clases privadas</h3><p>Un instructor dedicado a ti, que es tu pareja de baile, avanza a tu ritmo y hace seguimiento de tu progreso.</p></div>
-      <div class="caja"><h3>Clases grupales</h3><p>Aprendes con otros alumnos del estudio. Sirven para reforzar la técnica y ganar confianza.</p></div>
-      <div class="caja"><h3>Prácticas</h3><p>Una fiesta entre conocidos para soltarte, bailar con distintas parejas y aplicar lo aprendido.</p></div>
+      <div class="caja"><div class="medio"><video src="media/clase-privada.mp4" autoplay muted loop playsinline></video><span>Alumnos en sus clases privadas</span></div><h3>Clases privadas</h3><p>Un instructor dedicado a ti, que es tu pareja de baile, avanza a tu ritmo y hace seguimiento de tu progreso.</p></div>
+      <div class="caja"><div class="medio"><video src="media/clase-grupal.mp4" autoplay muted loop playsinline></video><span>Clase grupal</span></div><h3>Clases grupales</h3><p>Aprendes con otros alumnos del estudio. Sirven para reforzar la técnica y ganar confianza.</p></div>
+      <div class="caja"><div class="medio"><img src="media/estudio-2.jpg" alt=""><span>Navidad en el estudio</span></div><h3>Prácticas</h3><p>Una fiesta entre conocidos para soltarte, bailar con distintas parejas y aplicar lo aprendido.</p></div>
     </div>
-    <div class="banda"><img src="media/estudio-2.jpg" alt="Alumnos e instructores celebran la Navidad en el estudio"></div>
   </div></section>
 
   <section class="vista" id="fiestas"><div class="dentro">
     <h2>Fiestas temáticas de los viernes</h2>
     <p style="color:var(--gris);max-width:42em;margin-top:10px">Los viernes el estudio se transforma: cada fiesta tiene un tema, y alumnos e instructores bailan juntos lo que aprendieron en la semana.</p>
+    <figure class="todos"><img src="media/evento-2.jpg" alt="Alumnos e instructores disfrazados posan juntos en el estudio"><figcaption>Alumnos e instructores en la fiesta de México del Festival Bailando por el Mundo</figcaption></figure>
     <div class="fiestas" id="lista-fiestas"></div>
   </div></section>
 
@@ -294,7 +288,7 @@ function ir(id){
   if(!document.getElementById(id)) id='inicio';
   vistas.forEach(v=>v.classList.toggle('on',v.id===id));
   document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.ir===id));
-  document.querySelectorAll('.vista > .trio video, .marco video').forEach(v=>v.closest('.vista').id===id?v.play().catch(()=>{}):v.pause());
+  [...document.querySelectorAll('.vista video')].filter(v=>v.loop).forEach(v=>v.closest('.vista').id===id?v.play().catch(()=>{}):v.pause());
   if(location.hash!=='#'+id) history.replaceState(null,'','#'+id);
   window.scrollTo(0,0);
 }
@@ -305,7 +299,7 @@ ir(location.hash.slice(1)||'inicio');
    Para agregar una foto o video basta subir el siguiente número. Los pies de foto se editan en PIES. */
 const PIES={"show-1":"Broadway Showcase","show-2":"Broadway Showcase","show-3":"El elenco al cierre del show",
   "competencia-1":"South American Open","competencia-2":"Raymichay Competition","competencia-3":"World Dance Experience, Argentina",
-  "video-1":"Clase grupal en el estudio","video-2":"En competencia","competencia-video-1":"Mini Match","video-3":"Open Chile Championships. Video: @openchilechampionships","competencia-4":"Instructores en competencia. Foto: @karin.shots","evento-1":"4 de julio en la Embajada de EE.UU.","estudio-2":"Navidad en el estudio","estudio-1":"Mini Match","estudio-3":"Antes de salir a escena"};
+  "video-1":"Clase grupal en el estudio","video-2":"En competencia","competencia-video-1":"Mini Match","video-3":"Open Chile Championships. Video: @openchilechampionships","competencia-4":"Instructores en competencia. Foto: @karin.shots","evento-2":"Festival Bailando por el Mundo: México","evento-1":"4 de julio en la Embajada de EE.UU.","estudio-2":"Navidad en el estudio","estudio-1":"Mini Match","estudio-3":"Antes de salir a escena"};
 function llenar(g,nombres,ext){
   const caja=document.querySelector(`.galeria[data-g="${g}"]`);
   nombres.forEach(n=>{

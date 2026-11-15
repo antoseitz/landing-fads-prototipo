@@ -8,8 +8,8 @@ La página es de pestañas y lee sus archivos desde [`media`](media/). Para camb
 | Pestaña | Archivos |
 |---|---|
 | Inicio (tres videos a la vez, sin sonido) | `portada-1.mp4` a `portada-3.mp4`, con su imagen `portada-N.jpg` |
-| Tu primera clase | `primera-clase.mp4`, con su imagen `primera-clase.jpg` |
-| Clases | `estudio-2.jpg` |
+| Clases | `clase-privada.mp4`, `clase-grupal.mp4`, `estudio-2.jpg` |
+| Fiestas, foto grupal | `evento-2.jpg` |
 | Fiestas (cada una aparece al subir su video; la lista `FIESTAS` de [`index.html`](index.html) define título y archivo) | `fiesta-halloween.mp4`, `fiesta-mexico.mp4`, `fiesta-espana.mp4` |
 | Instructores | `profe-1.jpg` a `profe-6.jpg` (opcionales; los nombres se editan en la lista `EQUIPO` de [`index.html`](index.html)) |
 | Eventos → Shows | `show-1.jpg`, `show-2.jpg`, … (hasta `show-20.jpg`) |
@@ -32,3 +32,4 @@ Origen de las fotos y videos: publicaciones de Instagram de @fadssantiago y de a
 - 2026-11-15: corrige los videos de portada que se salían de su espacio y tapaban el texto en pantallas medianas ([`index.html`](index.html)).
 - 2026-11-15: pestaña Fiestas temáticas (México y España; Halloween aparece al subir `fiesta-halloween.mp4`) y fiesta de México en el video central de la portada ([`index.html`](index.html)).
 - 2026-11-15: video del Mini Match en Eventos → Competencias ([`media/competencia-video-1.mp4`](media/competencia-video-1.mp4)).
+- 2026-11-15: elimina la pestaña Tu primera clase; videos en Clases privadas y grupales; foto grupal en Fiestas; nuevo video 1 de portada; todos los videos reexportados a la resolución de su fuente ([`index.html`](index.html), [`media`](media/)).
