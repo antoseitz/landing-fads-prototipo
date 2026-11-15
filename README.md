@@ -11,7 +11,12 @@ La página es de pestañas y lee sus archivos desde [`media`](media/). Para camb
 | Tu primera clase | `estudio-1.jpg` |
 | Clases | `estudio-2.jpg` |
 | Instructores | `profe-1.jpg` a `profe-6.jpg` (opcionales; los nombres se editan en la lista `EQUIPO` de [`index.html`](index.html)) |
-| Eventos | `show-1.jpg` a `show-3.jpg`, `competencia-1.jpg` a `competencia-3.jpg`, `evento-1.jpg`, `estudio-1.jpg` a `estudio-3.jpg` |
+| Eventos → Shows | `show-1.jpg`, `show-2.jpg`, … (hasta `show-20.jpg`) |
+| Eventos → Competencias | `competencia-1.jpg`, … (hasta 20) |
+| Eventos → Eventos y estudio | `evento-1.jpg`, … (hasta 20), más `estudio-1.jpg` a `estudio-3.jpg` |
+| Eventos → Videos (la pestaña aparece al subir el primero) | `video-1.mp4`, … (hasta 20) |
+
+Para agregar una foto o video a Eventos basta subir el siguiente número; la página lo muestra sola. Los pies de foto se editan en la lista `PIES` de [`index.html`](index.html).
 
 Origen de las fotos y videos: publicaciones de Instagram de @fadssantiago y de alumnos, entregadas por el equipo el 2026-11-15. Sin verificar: autorización de las personas que aparecen.
 
@@ -20,3 +25,4 @@ Origen de las fotos y videos: publicaciones de Instagram de @fadssantiago y de a
 - 2026-11-15: primera versión de la landing "¿Me concedes esta pieza?" ([`index.html`](index.html)).
 - 2026-11-15: paleta de la marca (negro, blanco y dorado) y portada con video opcional `media/portada.mp4` ([`index.html`](index.html)).
 - 2026-11-15: página por pestañas, negro, blanco y dorado, portada con tres videos y fotos reales ([`index.html`](index.html), [`media`](media/)).
+- 2026-11-15: galerías de Eventos que detectan solas los archivos numerados, pestaña Videos y videos de portada en mayor calidad ([`index.html`](index.html)).

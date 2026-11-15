@@ -86,12 +86,11 @@ main{flex:1 0 auto;display:flex}
 .sub{display:flex;gap:8px;margin:24px 0 20px;flex-wrap:wrap}
 .sub button{font:500 14.5px Poppins,sans-serif;border:2px solid var(--oro);background:none;color:inherit;border-radius:999px;padding:8px 20px;cursor:pointer}
 .sub button[aria-selected=true]{background:var(--oro);color:#000;font-weight:700}
-.galeria{display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.galeria{display:none;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .galeria.on{display:grid}
-.galeria.cuatro{grid-template-columns:repeat(4,minmax(0,1fr))}
 .galeria figure{position:relative;background:#111}
 .galeria img{width:100%;aspect-ratio:4/3.6;object-fit:cover;object-position:50% 25%}
-.galeria.cuatro img{aspect-ratio:3/4}
+.galeria video{width:100%;aspect-ratio:3/4;object-fit:cover;background:#111}
 .galeria figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 10px;font-size:13.5px;font-weight:500;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent)}
 
 /* reservar */
@@ -134,7 +133,7 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
   .marco img{aspect-ratio:4/3}
   .tres{grid-template-columns:1fr;gap:14px}
   .equipo{grid-template-columns:repeat(3,1fr)}
-  .galeria,.galeria.cuatro{grid-template-columns:1fr 1fr}
+  .galeria{grid-template-columns:1fr 1fr}
   footer{flex-direction:column;gap:2px}
 }
 @media(max-width:560px){header .boton{display:none}.equipo .foto{font-size:38px}}
@@ -211,23 +210,12 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
       <button role="tab" data-g="shows" aria-selected="true">Shows</button>
       <button role="tab" data-g="compe" aria-selected="false">Competencias</button>
       <button role="tab" data-g="estudio" aria-selected="false">Eventos y estudio</button>
+      <button role="tab" data-g="videos" aria-selected="false" hidden>Videos</button>
     </div>
-    <div class="galeria on" data-g="shows">
-      <figure><img src="media/show-1.jpg" alt=""><figcaption>Broadway Showcase</figcaption></figure>
-      <figure><img src="media/show-2.jpg" alt=""><figcaption>Broadway Showcase</figcaption></figure>
-      <figure><img src="media/show-3.jpg" alt=""><figcaption>El elenco al cierre del show</figcaption></figure>
-    </div>
-    <div class="galeria" data-g="compe">
-      <figure><img src="media/competencia-1.jpg" alt=""><figcaption>South American Open</figcaption></figure>
-      <figure><img src="media/competencia-2.jpg" alt=""><figcaption>Raymichay Competition</figcaption></figure>
-      <figure><img src="media/competencia-3.jpg" alt=""><figcaption>World Dance Experience, Argentina</figcaption></figure>
-    </div>
-    <div class="galeria cuatro" data-g="estudio">
-      <figure><img src="media/evento-1.jpg" alt=""><figcaption>4 de julio en la Embajada de EE.UU.</figcaption></figure>
-      <figure><img src="media/estudio-2.jpg" alt=""><figcaption>Navidad en el estudio</figcaption></figure>
-      <figure><img src="media/estudio-1.jpg" alt=""><figcaption>Mini Match</figcaption></figure>
-      <figure><img src="media/estudio-3.jpg" alt=""><figcaption>Antes de salir a escena</figcaption></figure>
-    </div>
+    <div class="galeria on" data-g="shows"></div>
+    <div class="galeria" data-g="compe"></div>
+    <div class="galeria" data-g="estudio"></div>
+    <div class="galeria" data-g="videos"></div>
   </div></section>
 
   <section class="vista" id="preguntas"><div class="dentro preg">
@@ -287,6 +275,27 @@ function ir(id){
 }
 document.addEventListener('click',e=>{const b=e.target.closest('[data-ir]'); if(b) ir(b.dataset.ir)});
 ir(location.hash.slice(1)||'inicio');
+
+/* GALERÍAS: la página busca sola los archivos numerados en media/ (show-1.jpg, show-2.jpg, ... hasta 20).
+   Para agregar una foto o video basta subir el siguiente número. Los pies de foto se editan en PIES. */
+const PIES={"show-1":"Broadway Showcase","show-2":"Broadway Showcase","show-3":"El elenco al cierre del show",
+  "competencia-1":"South American Open","competencia-2":"Raymichay Competition","competencia-3":"World Dance Experience, Argentina",
+  "evento-1":"4 de julio en la Embajada de EE.UU.","estudio-2":"Navidad en el estudio","estudio-1":"Mini Match","estudio-3":"Antes de salir a escena"};
+function llenar(g,nombres,ext){
+  const caja=document.querySelector(`.galeria[data-g="${g}"]`);
+  nombres.forEach(n=>{
+    const f=document.createElement('figure'); f.hidden=true; caja.append(f);
+    const listo=el=>{f.append(el); if(PIES[n]) f.insertAdjacentHTML('beforeend',`<figcaption>${PIES[n]}</figcaption>`); f.hidden=false;
+      if(g==='videos') document.querySelector('#sub [data-g="videos"]').hidden=false};
+    if(ext==='mp4'){const v=document.createElement('video'); v.controls=true; v.preload='metadata'; v.playsInline=true; v.onloadedmetadata=()=>listo(v); v.onerror=()=>f.remove(); v.src=`media/${n}.mp4#t=0.5`}
+    else{const i=new Image(); i.alt=''; i.onload=()=>listo(i); i.onerror=()=>f.remove(); i.src=`media/${n}.jpg`}
+  });
+}
+const serie=p=>Array.from({length:20},(_,k)=>`${p}-${k+1}`);
+llenar('shows',serie('show'));
+llenar('compe',serie('competencia'));
+llenar('estudio',[...serie('evento'),'estudio-2','estudio-1','estudio-3']);
+llenar('videos',serie('video'),'mp4');
 
 /* Sub-pestañas de eventos */
 document.getElementById('sub').addEventListener('click',e=>{
