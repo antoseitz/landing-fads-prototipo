@@ -40,3 +40,4 @@ Origen de las fotos y videos: publicaciones de Instagram de @fadssantiago y de a
 - 2026-11-15: equipo actualizado a 10 instructores y 3 practicantes, según lo informado por el equipo del proyecto; sin verificar apellidos y grafías ([`index.html`](index.html)).
 - 2026-11-15: fotos y nombres completos de seis instructores, tomados de los nombres de archivo entregados por el equipo ([`media`](media/)).
 - 2026-11-15: fotos de cinco personas más del equipo y nombre completo de Josefa De la Fuente, según los nombres de archivo entregados ([`media`](media/)).
+- 2026-11-15: foto de José Luis Tejo ([`media/profe-jose-luis-tejo.jpg`](media/profe-jose-luis-tejo.jpg)).
