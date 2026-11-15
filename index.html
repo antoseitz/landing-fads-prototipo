@@ -90,9 +90,9 @@ main{flex:1 0 auto;display:flex}
 .todos figcaption{background:var(--oro);color:#000;font-size:13px;font-weight:700;padding:6px 14px}
 
 /* instructores */
-.equipo{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin-top:34px}
+.equipo{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:16px;margin-top:22px}
 .equipo figure{text-align:center}
-.equipo .foto{aspect-ratio:3/4;background:#000;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-size:54px;font-weight:700;color:var(--oro);overflow:hidden}
+.equipo .foto{aspect-ratio:1/1.1;background:#000;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;color:var(--oro);overflow:hidden}
 .equipo img{width:100%;height:100%;object-fit:cover}
 .equipo figcaption{font-weight:700;font-size:15.5px;line-height:1.2;margin-top:10px}
 
@@ -151,7 +151,6 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
   .dos,.reserva{grid-template-columns:1fr;gap:28px}
   .marco img,.marco video{aspect-ratio:4/3}
   .tres,.fiestas{grid-template-columns:1fr;gap:14px}
-  .equipo{grid-template-columns:repeat(3,1fr)}
   .galeria{grid-template-columns:1fr 1fr}
   footer{flex-direction:column;gap:2px}
 }
@@ -214,6 +213,8 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
     <h2>Ellos son los que te sacan a bailar</h2>
     <p style="max-width:40em;margin-top:10px">Cada alumno tiene un instructor que lo conoce por su nombre, sabe qué quiere lograr y lo acompaña clase a clase.</p>
     <div class="equipo" id="equipo"></div>
+    <h3 style="font-size:22px;margin-top:30px">Practicantes</h3>
+    <div class="equipo" id="practicantes"></div>
   </div></section>
 
   <section class="vista oscura" id="eventos"><div class="dentro">
@@ -268,13 +269,15 @@ footer{background:#000;color:#bdbdbd;font-size:12.5px;padding:10px 28px;display:
 <footer><span>Fred Astaire Dance Studios Santiago · WhatsApp +56 9 7626 2789 · @fadssantiago</span><span>Prototipo académico. Fotos y videos: publicaciones de @fadssantiago y de sus alumnos.</span></footer>
 
 <script>
-/* EQUIPO: editen nombres aquí. Si existe media/profe-N.jpg se muestra la foto; si no, las iniciales. */
-const EQUIPO=["José Luis Tejo","Macarena Álvarez","Karlos Vásquez","Sofía Saavedra","Carlos Boza","Julliana Villacorta"];
-const eq=document.getElementById('equipo');
-EQUIPO.forEach((nombre,i)=>{
-  const ini=nombre.split(' ').map(x=>x[0]).slice(0,2).join('');
-  eq.insertAdjacentHTML('beforeend',`<figure><div class="foto" data-foto="media/profe-${i+1}.jpg">${ini}</div><figcaption>${nombre}</figcaption></figure>`);
-});
+/* EQUIPO: [nombre, archivo de foto en media/]. Si la foto existe se muestra; si no, quedan las iniciales. */
+const INSTRUCTORES=[["José Luis Tejo","profe-jose-luis-tejo"],["Macarena Álvarez","profe-macarena-alvarez"],["Julliana Villacorta","profe-julliana-villacorta"],
+  ["Jo","profe-jo"],["Carlos Boza","profe-carlos-boza"],["Karlos Vásquez","profe-karlos-vasquez"],["Gustavo","profe-gustavo"],
+  ["Jota","profe-jota"],["Víctor","profe-victor"],["Benja","profe-benja"]];
+const PRACTICANTES=[["Sofía Soperrey","profe-sofia-soperrey"],["Matías Mora","profe-matias-mora"],["Sebastián Riquelme","profe-sebastian-riquelme"]];
+function equipo(id,lista){const eq=document.getElementById(id);
+  lista.forEach(([nombre,archivo])=>{const ini=nombre.split(' ').map(x=>x[0]).slice(0,2).join('');
+    eq.insertAdjacentHTML('beforeend',`<figure><div class="foto" data-foto="media/${archivo}.jpg">${ini}</div><figcaption>${nombre}</figcaption></figure>`)})}
+equipo('equipo',INSTRUCTORES); equipo('practicantes',PRACTICANTES);
 document.querySelectorAll('[data-foto]').forEach(d=>{const im=new Image();im.alt='';im.onload=()=>{d.textContent='';d.append(im)};im.src=d.dataset.foto});
 
 /* FIESTAS: cada una aparece solo si su video existe en media/. Para agregar otra, sumen una línea aquí. */
