@@ -99,6 +99,8 @@ main{flex:1 0 auto;display:flex}
 .galeria video{width:100%;aspect-ratio:4/3.6;object-fit:contain;background:#000}
 .galeria figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 10px;font-size:13.5px;font-weight:500;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent)}
 
+.galeria figure:has(video) figcaption{top:0;bottom:auto;padding:10px 14px 34px;background:linear-gradient(180deg,rgba(0,0,0,.85),transparent);pointer-events:none}
+
 /* reservar */
 .reserva{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:center}
 .reserva .slogan{font-size:46px;color:var(--oro2);margin:14px 0 22px}
