@@ -12,6 +12,7 @@ La página es de pestañas y lee sus archivos desde [`media`](media/). Para camb
 | Fiestas, foto grupal | `evento-2.jpg` |
 | Fiestas (cada una aparece al subir su video; la lista `FIESTAS` de [`index.html`](index.html) define título y archivo) | `fiesta-halloween.mp4`, `fiesta-mexico.mp4`, `fiesta-espana.mp4` |
 | Instructores | `profe-1.jpg` a `profe-6.jpg` (opcionales; los nombres se editan en la lista `EQUIPO` de [`index.html`](index.html)) |
+| Eventos → Próximos eventos | `proximo-1.jpg`, … (hasta 20) |
 | Eventos → Shows | `show-1.jpg`, `show-2.jpg`, … (hasta `show-20.jpg`) |
 | Eventos → Competencias | fotos `competencia-1.jpg`, … y videos `competencia-video-1.mp4`, … (hasta 20 de cada uno) |
 | Eventos → Eventos y estudio | `evento-1.jpg`, … (hasta 20), más `estudio-1.jpg` a `estudio-3.jpg` |
@@ -35,3 +36,4 @@ Origen de las fotos y videos: publicaciones de Instagram de @fadssantiago y de a
 - 2026-11-15: elimina la pestaña Tu primera clase; videos en Clases privadas y grupales; foto grupal en Fiestas; nuevo video 1 de portada; todos los videos reexportados a la resolución de su fuente ([`index.html`](index.html), [`media`](media/)).
 - 2026-11-15: segundo video en Clases privadas ([`media/clase-privada-2.mp4`](media/clase-privada-2.mp4)).
 - 2026-11-15: la foto grupal de Fiestas se muestra completa, sin cortar a las personas ([`index.html`](index.html)).
+- 2026-11-15: sub-pestaña Próximos eventos con el afiche del Open Chile Championships 2026, tomado de Instagram con crédito ([`media/proximo-1.jpg`](media/proximo-1.jpg)).
