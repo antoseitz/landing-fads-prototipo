@@ -27,3 +27,4 @@ Origen de las fotos y videos: publicaciones de Instagram de @fadssantiago y de a
 - 2026-11-15: página por pestañas, negro, blanco y dorado, portada con tres videos y fotos reales ([`index.html`](index.html), [`media`](media/)).
 - 2026-11-15: galerías de Eventos que detectan solas los archivos numerados, pestaña Videos y videos de portada en mayor calidad ([`index.html`](index.html)).
 - 2026-11-15: videos originales en la portada, en Tu primera clase y en Eventos → Videos ([`media`](media/)).
+- 2026-11-15: agrega `competencia-4.jpg` (foto de @karin.shots) y `video-3.mp4` (reel de @openchilechampionships), ambos tomados de Instagram con crédito en el pie ([`media`](media/)).
